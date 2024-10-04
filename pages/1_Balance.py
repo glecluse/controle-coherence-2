@@ -289,7 +289,7 @@ def verifier_coherence(balance_df):
         
         # Vérifier si des comptes sont trouvés
         if not comptes_45_debit.empty:
-            st.write("Un ou plusiers comptes courants d'associés sont débiteurs.")
+            st.write("Un ou plusieurs comptes courants d'associés sont débiteurs.")
             st.write("---")
 
     def check_comptes_486_debit(balance_df):
