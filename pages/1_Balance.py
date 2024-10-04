@@ -351,6 +351,9 @@ with col2:
 st.title("Contrôle de la cohérence de la balance après opérations d'inventaire")
 uploaded_file = st.file_uploader("Téléchargez la balance au format XLSX", type="xlsx")
 
+st.markdown("""La balance au format `.xlsx` doit être extraite de **Odoo** en sélectionnant **"Tout déplier"** dans les options."""
+)
+
 if uploaded_file is not None:
     balance_df = pd.read_excel(uploaded_file)
     balance_df.columns=['compte','libelle','débit_n-1', 'crédit_n-1','mouvements_débit','mouvements_crédit','débit',"crédit"]
