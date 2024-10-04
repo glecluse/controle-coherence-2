@@ -334,7 +334,7 @@ def verifier_coherence(balance_df):
     subventions_investissement(balance_df)
     check_provisions_balance(balance_df)
     check_emprunts_et_interets(balance_df)
-    check_amortissements_incorporels(balance_df)
+    #check_amortissements_incorporels(balance_df)
     variation_stock(balance_df)
     fournisseur_debiteur(balance_df)
     check_mouvements_comptes_attente(balance_df)
@@ -352,7 +352,7 @@ with col2:
 st.title("Contrôle de la cohérence de la balance après opérations d'inventaire")
 uploaded_file = st.file_uploader("Téléchargez la balance au format XLSX", type="xlsx")
 
-st.markdown("""La balance au format `.xlsx` doit être extraite de **Odoo** en sélectionnant **"Tout déplier"** dans les options."""
+st.markdown("""La balance au format `.xlsx` doit être extraite de **Odoo** en sélectionnant **"Tout déplier"** dans les options. Pour l'instant, l'outil ne prend en charge uniquement les balances extraites de la version 17 de Odoo."""
 )
 st.write("---")
 
