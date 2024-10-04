@@ -21,7 +21,7 @@ def verifier_coherence(balance_df):
             # Comparer si la réserve légale dépasse 10% du capital versé
             if reserve_legale > (0.10 * capital_verse):
                 st.write("Vérifier le montant de la réserve légale")
-                st.write(f"Montant du capital versé : {capital_verse}, Montant de la réserve légale : {reserve_legale}")
+                st.write(f"Montant du capital versé : {capital_verse} €, Montant de la réserve légale : {reserve_legale} €")
                 st.markdown("[Référence législative](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006229005)")
                 st.write("---")
                        
