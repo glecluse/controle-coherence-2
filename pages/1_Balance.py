@@ -146,7 +146,8 @@ def verifier_coherence(balance_df):
         
         # Vérifier si des comptes 15 avec des montants au crédit sont présents
         if comptes_15_credit.empty:
-            st.write( """\n Il n'y a pas de provisions inscrites au bilan. Assurez-vous auprès du client qu'il n'y a pas de :\n
+            st.write( """
+        Il n'y a pas de provisions inscrites au bilan. Assurez-vous auprès du client qu'il n'y a pas de :\n
         - Provisions pour risques,\n
         - Provisions pour pensions et obligations similaires,\n 
         - Provisions pour restructurations,\n 
@@ -353,6 +354,7 @@ uploaded_file = st.file_uploader("Téléchargez la balance au format XLSX", type
 
 st.markdown("""La balance au format `.xlsx` doit être extraite de **Odoo** en sélectionnant **"Tout déplier"** dans les options."""
 )
+st.write("---")
 
 if uploaded_file is not None:
     balance_df = pd.read_excel(uploaded_file)
@@ -363,6 +365,9 @@ if uploaded_file is not None:
     balance_df['crédit'] = pd.to_numeric(balance_df['crédit'], errors='coerce')
     balance_df['compte'] = balance_df['compte'].astype(str)
     balance_df.replace(0, np.nan, inplace=True)
+
+    st.title("Rapport de cohérence :")
+    st.write("--")
 
     # Vérification de la cohérence
     verifier_coherence(balance_df)
