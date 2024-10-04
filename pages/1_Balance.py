@@ -159,8 +159,8 @@ def verifier_coherence(balance_df):
     def check_emprunts_et_interets(balance_df):
         """
         Cette fonction vérifie si un compte commençant par 164 est présent dans la colonne 'crédit'.
-        Si oui, elle vérifie également la présence des comptes commençant par 6616 avec un montant dans la colonne 'débit'.
-        Si aucun compte commençant par 6616 n'est trouvé, elle affiche un message d'avertissement concernant les intérêts non comptabilisés.
+        Si oui, elle vérifie également la présence des comptes commençant par 6611 avec un montant dans la colonne 'débit'.
+        Si aucun compte commençant par 6611 n'est trouvé, elle affiche un message d'avertissement concernant les intérêts non comptabilisés.
         """
         
         # Convertir les comptes en chaînes de caractères au cas où
@@ -169,12 +169,12 @@ def verifier_coherence(balance_df):
         # Filtrer pour les comptes commençant par 164 avec un montant dans la colonne 'crédit'
         comptes_164_credit = balance_df.loc[balance_df['compte'].str.startswith('164') & balance_df['crédit'].notna()]
         
-        # Si le compte 164 est trouvé, vérifier la présence des comptes commençant par 6616 avec un montant au débit
+        # Si le compte 164 est trouvé, vérifier la présence des comptes commençant par 66111 avec un montant au débit
         if not comptes_164_credit.empty:
-            comptes_6616_debit = balance_df.loc[balance_df['compte'].str.startswith('6616') & balance_df['débit'].notna()]
+            comptes_6611_debit = balance_df.loc[balance_df['compte'].str.startswith('6611') & balance_df['débit'].notna()]
             
-            # Si aucun compte commençant par 6616 n'est trouvé avec un montant au débit, afficher un avertissement
-            if comptes_6616_debit.empty:
+            # Si aucun compte commençant par 6611 n'est trouvé avec un montant au débit, afficher un avertissement
+            if comptes_6611_debit.empty:
                 st.write("Attention, l'entreprise a des emprunts et les intérêts ne sont pas comptabilisés.")
                 st.write("---")
 
